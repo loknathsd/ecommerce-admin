@@ -1,6 +1,5 @@
 import React from 'react';
 import Chart from "react-apexcharts";
-import { ApexOptions } from "apexcharts";
 
 const data = {
     series: [
@@ -105,7 +104,7 @@ const TotalSpent = () => {
     };
     const chartSeries = data.series;
     return (
-        <div className='bg-white w-[80%] mt-10 p-10 mx-auto'>
+        <div className='bg-white w-[60%] p-10'>
             <h4 className='font-serif'>Total Spent</h4>
             <h1 className='text-2xl text-blue-400 font-bold' >$682</h1>
             <div >

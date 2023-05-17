@@ -5,6 +5,7 @@ import {RxDashboard} from 'react-icons/rx'
 import {ImUsers} from 'react-icons/im'
 import Card from '../components/Card/Card';
 import TotalSpent from '../components/TotalSpent/TotalSpent';
+import Analytic from '../components/Analytic/Analytic';
 
 
 const data = [
@@ -37,8 +38,9 @@ const Dashboard = () => {
             <div className='flex justify-center gap-5 mt-10'>
                 {data.map(dt => <Card dt={dt} />)}
             </div>
-            <div>
+            <div className="flex mt-10 justify-center gap-10">
                 <TotalSpent />
+                <Analytic />
             </div>
         </div>
     );
