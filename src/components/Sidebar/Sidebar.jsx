@@ -1,0 +1,70 @@
+import React, { useState } from 'react';
+import { MdOutlineDashboard, MdAddShoppingCart } from 'react-icons/md';
+import { BsMinecartLoaded, BsPersonFillAdd, BsFillCartCheckFill, BsFillArrowLeftSquareFill, BsFillArrowRightSquareFill } from 'react-icons/bs';
+import { FaUsers } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+
+const index = [
+    {
+        title: "Dashboard",
+        Icon: <MdOutlineDashboard />,
+        path: "/dashboard",
+    },
+    {
+        title: "Products",
+        Icon: <BsMinecartLoaded />,
+        path: "/products",
+    },
+    {
+        title: "Add Product",
+        Icon: <MdAddShoppingCart />,
+        path: "/add-product",
+    },
+    {
+        title: "Customers List",
+        Icon: <FaUsers />,
+        path: "/customers",
+    },
+    {
+        title: "Add Customer",
+        Icon: <BsPersonFillAdd />,
+        path: "/add-customer",
+    },
+    {
+        title: "Orders List",
+        Icon: <BsFillCartCheckFill />,
+        path: "/orders",
+    },
+
+];
+
+const Sidebar = () => {
+    const [active, setActive] = useState("Dashboard");
+    const [show, setShow] = useState(false);
+
+    const handleActiveButton = (menu) => {
+        setActive(menu.title);
+    }
+    return (
+        <div>
+            <div className={`${show ? 'w-20' : 'w-56'} shadow-2xl h-[100vh] px-7 pt-16`}>
+                <div className='text-right text-2xl text-blue-400'>
+                    {!show && <button onClick={()=>setShow(true)} ><BsFillArrowLeftSquareFill /></button>}
+                    {show && <button onClick={()=>setShow(false)}><BsFillArrowRightSquareFill /></button>}
+                </div>
+                <div style={{ maxHeight: "calc(100% - 50px)" }}>
+                    {index.map((nav, index) =>
+                        <div key={index} >
+                            <div className={`font-serif flex mb-[1rem] mt-8 text-lg gap-4 cursor-pointer ${active === nav.title ? 'text-blue-500' : 'text-gray-500'}`}>
+                                <p className='text-xl'><Link to={nav.path}><button onClick={() => handleActiveButton(nav)} >{nav.Icon}</button></Link></p>
+                                {!show && <p>{nav.title}</p>}
+                            </div>
+                        </div>
+                    )}
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default Sidebar;

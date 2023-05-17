@@ -1,10 +1,11 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
+import Sidebar from '../components/Sidebar/Sidebar';
 
 const Dashboard = () => {
     return (
         <div>
-            <h1 className='text-center text-red-500'>Welcome to Dashboard</h1>
+            <Sidebar />
             <Outlet />
         </div>
     );
