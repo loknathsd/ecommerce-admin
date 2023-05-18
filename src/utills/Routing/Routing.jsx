@@ -4,6 +4,7 @@ import DashboardLayout from '../../Layout/DashboardLayout';
 import Customers from '../../pages/Customers';
 import Dashboard from '../../pages/Dashboard';
 import Login from '../../pages/Login';
+import OrdersList from '../../pages/OrdersList';
 import Products from '../../pages/Products';
 
 const Routing = () => {
@@ -16,6 +17,7 @@ const Routing = () => {
                 <Route path='dashboard' element={<Dashboard/>}/>
                 <Route path='products' element={<Products/>}/>
                 <Route path='customers' element={<Customers/>}/>
+                <Route path='orders' element={<OrdersList />}/>
             </Route>
             
         </Routes>
