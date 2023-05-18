@@ -34,7 +34,8 @@ const data = [
 
 const Dashboard = () => {
     return (
-        <div className=''>
+        <div>
+            <h1 className='text-4xl font-serif text-gray-600 ml-10 mt-10'>Overview</h1>
             <div className='flex justify-center gap-5 mt-10'>
                 {data.map(dt => <Card dt={dt} />)}
             </div>

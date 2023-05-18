@@ -3,6 +3,7 @@ import { Route, Routes,Navigate } from 'react-router-dom';
 import DashboardLayout from '../../Layout/DashboardLayout';
 import Dashboard from '../../pages/Dashboard';
 import Login from '../../pages/Login';
+import Products from '../../pages/Products';
 
 const Routing = () => {
     return (
@@ -12,7 +13,7 @@ const Routing = () => {
             <Route path='/' element={<DashboardLayout />}>
                 <Route path="/" element={<Navigate replace to="dashboard" ></Navigate>} />
                 <Route path='dashboard' element={<Dashboard/>}/>
-
+                <Route path='products' element={<Products/>}/>
             </Route>
             
         </Routes>

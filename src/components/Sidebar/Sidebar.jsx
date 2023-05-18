@@ -8,32 +8,32 @@ const index = [
     {
         title: "Dashboard",
         Icon: <MdOutlineDashboard />,
-        path: "/dashboard",
+        path: "dashboard",
     },
     {
         title: "Products",
         Icon: <BsMinecartLoaded />,
-        path: "/products",
+        path: "products",
     },
     {
         title: "Add Product",
         Icon: <MdAddShoppingCart />,
-        path: "/add-product",
+        path: "add-product",
     },
     {
         title: "Customers List",
         Icon: <FaUsers />,
-        path: "/customers",
+        path: "customers",
     },
     {
         title: "Add Customer",
         Icon: <BsPersonFillAdd />,
-        path: "/add-customer",
+        path: "add-customer",
     },
     {
         title: "Orders List",
         Icon: <BsFillCartCheckFill />,
-        path: "/orders",
+        path: "orders",
     },
 
 ];
@@ -46,7 +46,7 @@ const Sidebar = () => {
         setActive(menu.title);
     }
     return (
-        <div>
+        <div style={{position:'sticky',top:0}}>
             <div className={`${show ? 'w-20' : 'w-56'} shadow-2xl h-[100vh] px-7 pt-16`}>
                 <div className='text-right text-2xl text-blue-400'>
                     {!show && <button onClick={()=>setShow(true)} ><BsFillArrowLeftSquareFill /></button>}
@@ -55,10 +55,10 @@ const Sidebar = () => {
                 <div style={{ maxHeight: "calc(100% - 50px)" }}>
                     {index.map((nav, index) =>
                         <div key={index} >
-                            <div className={`font-serif flex mb-[1rem] mt-8 text-lg gap-4 cursor-pointer ${active === nav.title ? 'text-blue-500' : 'text-gray-500'}`}>
-                                <p className='text-xl'><Link to={nav.path}><button onClick={() => handleActiveButton(nav)} >{nav.Icon}</button></Link></p>
+                            <Link to={nav.path} onClick={() => handleActiveButton(nav)}  className={`font-serif flex mb-[1rem] mt-8 text-lg gap-4 cursor-pointer ${active === nav.title ? 'text-blue-500' : 'text-gray-500'}`}>
+                                <button className='text-xl'>{nav.Icon}</button>
                                 {!show && <p>{nav.title}</p>}
-                            </div>
+                            </Link>
                         </div>
                     )}
                 </div>
