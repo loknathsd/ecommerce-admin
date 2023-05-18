@@ -614,7 +614,7 @@ export const customersData = [
 export const ordersGrid = [
     {
         field: 'image',
-        headerName: 'image',
+        headerName: 'Image',
         renderCell: (params) => <img className="w-12 rounded-full" src={params.value} alt="" />,
         textAlign: 'Center',
         width: '120',
