@@ -2,12 +2,20 @@ import React from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { FaFacebookF } from 'react-icons/fa';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import useAuth from '../context/useAuth';
+import { toast } from 'react-hot-toast';
 
 const Register = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
-
+    const {signup} = useAuth();
+    const navigate = useNavigate()
+    const onSubmit = data =>{
+        console.log(data)
+        signup(data);
+        navigate('/login');
+        toast.success('Registration Successful')
+    }
     return (
         <div className='bg-gray-100 w-full h-[100vh] flex justify-center'>
             <div className=' lg:w-[50%]  md:w-[60%] shadow-lg  lg:h-5/6 bg-white mt-16 rounded-lg text-center max-sm:p-8 '>
@@ -29,13 +37,13 @@ const Register = () => {
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="text-left mx-12">
                             <label>Name</label><br />
-                            <input className='mt-2 border-2 border-gray-30 w-[100%] py-2 rounded-md px-3' {...register("name")} required />
+                            <input type="text" className='mt-2 border-2 border-gray-30 w-[100%] py-2 rounded-md px-3' {...register("name")} required />
                         </div>
                         <div className='lg:flex md:flex justify-center gap-3 text-left mt-4 mb-6 font-serif'>
 
                             <div>
                                 <label>Phone Number</label><br />
-                                <input className=' mt-2 border-2 border-gray-30 w-72 max-lg:w-52 max-sm:w-72  py-2 rounded-md px-3' {...register('phone', {
+                                <input type="text" className=' mt-2 border-2 border-gray-30 w-72 max-lg:w-52 max-sm:w-72  py-2 rounded-md px-3' {...register('phone', {
                                     pattern: {
                                         value: /^(\+?880|0)1[3456789][0-9]{8}$/,
                                         message: 'Enter a bangladeshi number',
@@ -45,7 +53,7 @@ const Register = () => {
                             </div>
                             <div>
                                 <label>Password</label><br />
-                                <input className='mt-2 border-2 border-gray-30 w-72 max-lg:w-52 max-sm:w-72  py-2 rounded-md px-3' {...register("password")} required />
+                                <input type="password" className='mt-2 border-2 border-gray-30 w-72 max-lg:w-52 max-sm:w-72  py-2 rounded-md px-3' {...register("password")} required />
                             </div>
                         </div>
                         <input className='cursor-pointer border-2 border-gray-30 rounded-md text-white w-[86%] py-2 bg-sky-500' type="submit" value="SignUp" />

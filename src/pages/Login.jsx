@@ -2,12 +2,21 @@ import React from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { FaFacebookF } from 'react-icons/fa';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import useAuth from '../context/useAuth';
+import { toast } from 'react-hot-toast';
 
 const Login = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
-
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
+    const { login } = useAuth()
+    const onSubmit = data => {
+        login(data);
+        toast.success("Logged in successfully");
+        navigate(from, { replace: true });
+    }
     return (
         <div className='bg-gray-100 w-full h-[100vh] flex justify-center'>
             <div className=' lg:w-[50%]  md:w-[60%] shadow-lg  lg:h-3/4 bg-white mt-16 rounded-lg text-center max-sm:p-8 '>
@@ -36,7 +45,7 @@ const Login = () => {
                                         message: 'Enter a bangladeshi number',
                                     },
                                 })} required />
-                                 {errors?.phone && <p className="text-red-500">{errors?.phone?.message}</p>}
+                                {errors?.phone && <p className="text-red-500">{errors?.phone?.message}</p>}
                             </div>
                             <div>
                                 <label>Password</label><br />
