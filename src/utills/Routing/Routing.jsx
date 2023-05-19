@@ -8,12 +8,13 @@ import Dashboard from '../../pages/Dashboard';
 import Login from '../../pages/Login';
 import OrdersList from '../../pages/OrdersList';
 import Products from '../../pages/Products';
+import Register from '../../pages/Register';
 
 const Routing = () => {
     return (
         <Routes>
             <Route path='/login' element={<Login/> } />
-            <Route path='/register' element={<Login/> } />
+            <Route path='/register' element={<Register /> } />
             <Route path='/' element={<DashboardLayout />}>
                 <Route path="/" element={<Navigate replace to="dashboard" ></Navigate>} />
                 <Route path='dashboard' element={<Dashboard/>}/>
