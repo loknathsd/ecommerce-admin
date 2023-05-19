@@ -1,4 +1,4 @@
-import React from 'react';
+import { React, useEffect, useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { FaFacebookF } from 'react-icons/fa';
 import { useForm } from 'react-hook-form';
@@ -11,11 +11,23 @@ const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
-    const { login } = useAuth()
-    const onSubmit = data => {
-        login(data);
-        toast.success("Logged in successfully");
-        navigate(from, { replace: true });
+    const { login } = useAuth();
+    const [signUser, setSignUser] = useState({});
+    console.log(signUser);
+    useEffect(() => {
+        const user = localStorage.getItem('newUser');
+        const res = JSON.parse(user)
+        setSignUser(res)
+    }, [])
+    const onSubmit = (data) => {
+        console.log(signUser, signUser.phone)
+        if (signUser.phone === data.phone && signUser.password === data.password) {
+            login(data);
+            toast.success("Logged in successfully");
+            navigate(from, { replace: true });
+        } else {
+            toast.error("Invalid credentials")
+        }
     }
     return (
         <div className='bg-gray-100 w-full h-[100vh] flex justify-center'>
@@ -39,7 +51,7 @@ const Login = () => {
                         <div className='lg:flex md:flex justify-center gap-3 text-left mt-4 mb-6 font-serif'>
                             <div>
                                 <label>Phone Number</label><br />
-                                <input className=' mt-2 border-2 border-gray-30 w-72 max-lg:w-52 max-sm:w-72  py-2 rounded-md px-3' {...register('phone', {
+                                <input defaultValue={signUser?.phone} className=' mt-2 border-2 border-gray-30 w-72 max-lg:w-52 max-sm:w-72  py-2 rounded-md px-3' {...register('phone', {
                                     pattern: {
                                         value: /^(\+?880|0)1[3456789][0-9]{8}$/,
                                         message: 'Enter a bangladeshi number',
@@ -49,7 +61,7 @@ const Login = () => {
                             </div>
                             <div>
                                 <label>Password</label><br />
-                                <input className='mt-2 border-2 border-gray-30 w-72 max-lg:w-52 max-sm:w-72  py-2 rounded-md px-3' {...register("password")} required />
+                                <input type="password" defaultValue={signUser?.password} className='mt-2 border-2 border-gray-30 w-72 max-lg:w-52 max-sm:w-72  py-2 rounded-md px-3' {...register("password")} required />
                             </div>
                         </div>
                         <input className='cursor-pointer border-2 border-gray-30 rounded-md text-white w-[86%] py-2 bg-sky-500' type="submit" value="SignIn" />

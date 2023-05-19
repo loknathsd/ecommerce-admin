@@ -674,7 +674,7 @@ export const ordersData = [
         
     },
     {
-        id: 874534,
+        id: 8745342,
         CustomerName: 'Danai',
         TotalAmount: 122.99,
         OrderItems: 'Watch',
@@ -685,7 +685,7 @@ export const ordersData = [
             'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/pop-womens-garmin-watches-1641919013.jpg?crop=0.502xw:1.00xh;0.250xw,0&resize=640:*',
     },
     {
-        id: 38489,
+        id: 384893,
         CustomerName: 'Miron',
         TotalAmount: 87.99,
         OrderItems: 'Ice Cream',
@@ -707,7 +707,7 @@ export const ordersData = [
             'https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80',
     },
     {
-        id: 874534,
+        id: 8745341,
         CustomerName: 'Danai',
         TotalAmount: 122.99,
         OrderItems: 'Watch',
@@ -729,7 +729,7 @@ export const ordersData = [
             'https://cdn.shopclues.com/images1/thumbnails/104158/320/320/148648730-104158193-1592481791.jpg',
     },
     {
-        id: 874534,
+        id: 8745343,
         CustomerName: 'Danai',
         TotalAmount: 122.99,
         OrderItems: 'Watch',
@@ -740,7 +740,7 @@ export const ordersData = [
             'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/pop-womens-garmin-watches-1641919013.jpg?crop=0.502xw:1.00xh;0.250xw,0&resize=640:*',
     },
     {
-        id: 38489,
+        id: 384892,
         CustomerName: 'Miron',
         TotalAmount: 87.99,
         OrderItems: 'Ice Cream',
@@ -762,7 +762,7 @@ export const ordersData = [
             'https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80',
     },
     {
-        id: 874534,
+        id: 8745344,
         CustomerName: 'Danai',
         TotalAmount: 122.99,
         OrderItems: 'Watch',
@@ -783,7 +783,7 @@ export const ordersData = [
             'https://cdn.shopclues.com/images1/thumbnails/104158/320/320/148648730-104158193-1592481791.jpg',
     },
     {
-        id: 874534,
+        id: 8745345,
         CustomerName: 'Danai',
         TotalAmount: 122.99,
         OrderItems: 'Watch',
@@ -794,7 +794,7 @@ export const ordersData = [
             'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/pop-womens-garmin-watches-1641919013.jpg?crop=0.502xw:1.00xh;0.250xw,0&resize=640:*',
     },
     {
-        id: 38489,
+        id: 384891,
         CustomerName: 'Miron',
         TotalAmount: 87.99,
         OrderItems: 'Ice Cream',
@@ -816,7 +816,7 @@ export const ordersData = [
             'https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80',
     },
     {
-        id: 874534,
+        id: 8745346,
         CustomerName: 'Danai',
         TotalAmount: 122.99,
         OrderItems: 'Watch',

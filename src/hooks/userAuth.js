@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from 'react';
+import { toast } from 'react-hot-toast';
 
 const AuthContext = createContext();
 
@@ -14,12 +15,14 @@ export const AuthContextProvider = ({ children }) => {
     useEffect(() => {
         const signupData = localStorage.getItem('newUser');
         setSignUser(JSON.parse(signupData));
-    }, [])
+    }, [user])
 
     const login = (data) => {
         if (signUser?.phone === data?.phone && signUser?.password === data?.password) {
             setUser(data);
             sessionStorage.setItem('loggedUser', JSON.stringify(data));
+        }else{
+            toast.error("Something went wrong")
         }
     }
     return (
