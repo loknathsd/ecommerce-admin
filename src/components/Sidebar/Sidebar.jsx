@@ -3,7 +3,6 @@ import { MdOutlineDashboard, MdAddShoppingCart } from 'react-icons/md';
 import { BsMinecartLoaded, BsPersonFillAdd, BsFillCartCheckFill, BsFillArrowLeftSquareFill, BsFillArrowRightSquareFill } from 'react-icons/bs';
 import { FaUsers } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import useAuth from '../../context/useAuth';
 
 const index = [
     {
@@ -42,14 +41,11 @@ const index = [
 const Sidebar = () => {
     const [active, setActive] = useState("Dashboard");
     const [show, setShow] = useState(false);
-    const {logout} = useAuth();
 
     const handleActiveButton = (menu) => {
         setActive(menu.title);
     }
-    const handleLogOut=()=>{
-        logout();
-    }
+  
     return (
         <div style={{position:'sticky',top:0}}>
             <div className={`${show ? 'w-20' : 'w-56'} shadow-2xl h-[100vh] px-7 pt-16`}>
@@ -67,7 +63,6 @@ const Sidebar = () => {
                         </div>
                     )}
                 </div>
-                {!show && <button onClick={handleLogOut} className="bg-blue-500 px-5 py-2 rounded mt-8 text-white">Logout</button>}
             </div>
         </div>
     );
